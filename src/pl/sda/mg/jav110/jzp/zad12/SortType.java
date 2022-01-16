@@ -4,16 +4,10 @@ import java.util.Comparator;
 import java.util.function.Function;
 
 public enum SortType {
-    ASC(Comparator.naturalOrder()),
-    DESC(Comparator.reverseOrder());
+    ASC,
+    DESC;
 
-    private final Comparator<String> orderComparator;
-
-    SortType(Comparator<String> orderComparator) {
-        this.orderComparator = orderComparator;
-    }
-
-    public Comparator<Car> getComparator(Function<Car, String> fieldExtractor) {
+    public Comparator<Car> getComparator(Function<Car, ? extends Comparable> fieldExtractor) {
         Comparator<Car> defaultComparator = Comparator.comparing(c -> fieldExtractor.apply(c));
         if (this == DESC) {
             defaultComparator = defaultComparator.reversed();
