@@ -6,5 +6,20 @@ public class CircleMain {
         System.out.println("Promien: " + sampleCircle.getRadius());
         System.out.println("Obwod: " + sampleCircle.getPerimeter());
         System.out.println("Pole: " + sampleCircle.getArea());
+
+        System.out.println("Przed przesunieciem: " + sampleCircle);
+        sampleCircle.move(new MoveDirection(1, 1));
+        System.out.println("Po przesunieciu: " + sampleCircle);
+
+        System.out.println("Promien: " + sampleCircle.getRadius());
+        System.out.println("Obwod: " + sampleCircle.getPerimeter());
+        System.out.println("Pole: " + sampleCircle.getArea());
+
+        System.out.println("Po powiekszeniu");
+        sampleCircle.resize(2);
+        System.out.println("Promien: " + sampleCircle.getRadius());
+        System.out.println("Obwod: " + sampleCircle.getPerimeter());
+        System.out.println("Pole: " + sampleCircle.getArea());
+
     }
 }

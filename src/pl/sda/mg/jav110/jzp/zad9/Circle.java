@@ -1,6 +1,6 @@
 package pl.sda.mg.jav110.jzp.zad9;
 
-public class Circle {
+public class Circle implements Movable, Resizable {
     private Point2D center;
     private Point2D point;
 
@@ -24,4 +24,20 @@ public class Circle {
         return Math.PI * Math.pow(getRadius(), 2);
     }
 
+    @Override
+    public void move(MoveDirection moveDirection) {
+        this.point.move(moveDirection);
+        this.center.move(moveDirection);
+    }
+
+    @Override
+    public String toString() {
+        return "Circle[Center(" + center + "), point(" + point + ")]";
+    }
+
+    @Override
+    public void resize(double resizeFactor) {
+        this.point.setX(point.getX() * resizeFactor);
+        this.point.setY(point.getY() * resizeFactor);
+    }
 }
