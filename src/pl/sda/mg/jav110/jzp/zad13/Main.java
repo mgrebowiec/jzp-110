@@ -21,6 +21,26 @@ public class Main {
 
         List<Integer> result3 = get25(randomList);
         System.out.println("25 najczesciej powtarzajacyh sie liczb: " + result3);
+
+        List<Integer> uniqueValues = generateUniqueValues(randomList);
+        System.out.println("Rozmiar listy z unikalnymi wartosciami: " + uniqueValues.size());
+        System.out.println("Rozmiar listy z powtarzajacymi sie elementami (powinien byc 0): " + getRepeatedValues(uniqueValues).size());
+
+    }
+
+    private static List<Integer> generateUniqueValues(List<Integer> values) {
+        List<Integer> uniqueValues = new ArrayList<>();
+        values.forEach(value -> addOrGenerateUniqueValue(uniqueValues, value));
+        return uniqueValues;
+    }
+
+    private static void addOrGenerateUniqueValue(List<Integer> uniqueValues, Integer value) {
+        Random randomGenerator = new Random();
+        while (uniqueValues.contains(value)) {
+            value = randomGenerator.nextInt();
+        }
+
+        uniqueValues.add(value);
     }
 
     private static List<Integer> get25(List<Integer> values) {
