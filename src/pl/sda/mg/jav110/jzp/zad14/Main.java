@@ -1,4 +1,4 @@
-package pl.sda.mg.jav110.jzp.zad13;
+package pl.sda.mg.jav110.jzp.zad14;
 
 import java.util.*;
 import java.util.stream.Collectors;
